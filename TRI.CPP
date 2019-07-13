@@ -1,0 +1,74 @@
+#include<iostream.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<process.h>
+void tri(int);
+void main()
+{
+  int dd=DETECT,m;
+  initgraph(&dd,&m,"c:\\turboC3\\bgi");
+  int ans,o=3,flag=1;
+  while(o>=0&&flag==1)
+  {tri(o);
+  cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+  cout<<"How many do you see?";
+  cout<<"\n\nWrite your answer: ";
+  cin>>ans;
+  if(ans==17)
+  {
+    cout<<"\n\nYour answer is right.";
+    delay(2000);
+    flag=0;
+    exit;
+  }
+  else {cout<<"\n\nYour answer is wrong.\n\nTry again.";
+	delay(2000);
+	o--;
+       }
+  }
+
+}
+
+
+void tri(int o)
+{
+  clrscr();
+  cleardevice();
+  int ans;
+  switch(o)
+  {case 3:outtextxy(590,10,"3");break;
+   case 2:outtextxy(590,10,"2");break;
+   case 1:outtextxy(590,10,"1");break;
+   case 0:outtextxy(590,10,"0");break;
+  }
+  int a=200,b=440,c=320,x=350,y=80,z=(x+y)/2;
+  int d=a+((b-a)/4),e=b-((b-a)/4),f=(a+b)/2;
+  int g=(f+d)/2,h=(f+e)/2,w=(z+y)/2;
+  int i=(a+d)/2,v=(x+z)/2;
+  int j=(e+b)/2;
+  line(a,x,b,x);
+  line(a,x,c,y);
+  line(b,x,c,y);
+
+  line(d,z,e,z);
+  line(d,z,f,x);
+  line(e,z,f,x);
+
+  line(g,w,h,w);
+  line(g,w,f,z);
+  line(h,w,f,z);
+
+  line(i,v,g,v);
+  line(i,v,d,x);
+  line(g,v,d,x);
+
+  line(h,v,j,v);
+  line(h,v,e,x);
+  line(j,v,e,x);
+
+  floodfill(f,w+4,WHITE);
+  floodfill(d,v+4,WHITE);
+  floodfill(f,z+4,WHITE);
+  floodfill(e,v+4,WHITE);
+}
